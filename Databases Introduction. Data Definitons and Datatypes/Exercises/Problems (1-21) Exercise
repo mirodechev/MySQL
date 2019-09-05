@@ -3,7 +3,7 @@
 CREATE TABLE `minions`(
 `id` INT NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(45) NOT NULL,
-`age` INT NOT NULL,
+`age` INT,
 PRIMARY KEY (`id`));
 CREATE TABLE `towns`.`minions`(
 `id` INT NOT NULL AUTO_INCREMENT,
@@ -14,3 +14,11 @@ ADD COLUMN `town_id` INT NOT NULL;
 ALTER TABLE `minions`
 ADD CONSTRAINT fk_minions_towns FOREIGN KEY (`town_id`)
 REFERENCES  `towns`(`id`);
+4)INSERT INTO `towns` (name) VALUE("Sofia");
+INSERT INTO `towns` (name) VALUE("Plovdiv");
+INSERT INTO `towns` (name) VALUE("Varna");
+INSERT INTO `minions` (name,age,town_id) VALUES("Kevin",22,1);
+INSERT INTO `minions` (name,age,town_id) VALUES("Bob",15,3);
+INSERT INTO `minions` (name,age,town_id) VALUES("Steward",NULL,1);
+
+
