@@ -1,5 +1,5 @@
-CREATE DATABASE `minions`;
-USE `minions`;
+1)CREATE DATABASE `minions`;
+2)USE `minions`;
 CREATE TABLE `minions`(
 `id` INT NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(45) NOT NULL,
@@ -8,4 +8,9 @@ PRIMARY KEY (`id`));
 CREATE TABLE `towns`.`minions`(
 `id` INT NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(45) NOT NULL);
-ALTER TABLE `minions`.`minions`
+
+3)ALTER TABLE `minions`
+ADD COLUMN `town_id` INT NOT NULL;
+ALTER TABLE `minions`
+ADD CONSTRAINT fk_minions_towns FOREIGN KEY (`town_id`)
+REFERENCES  `towns`(`id`);
