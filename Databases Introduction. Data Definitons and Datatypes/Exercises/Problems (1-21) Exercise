@@ -70,3 +70,93 @@ CHANGE COLUMN `last_login_time` `current_time` TIME NULL DEFAULT NULL ;
 ALTER TABLE `minions`.`users`
 CHANGE COLUMN `pk_users_username` `pk_users` INT NOT NULL AUTO_INCREMENT;
 
+
+CREATE DATABASE `softuni`;
+USE `softuni`;
+CREATE TABLE `towns`(
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(100) NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE `addresses`(
+`id` INT NOT NULL AUTO_INCREMENT,
+`address_text` TEXT,
+`town_id` INT NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE `departments`(
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(100) NOT NULL,
+PRIMARY KEY (`id`));
+
+CREATE TABLE `employees`(
+`id` INT NOT NULL AUTO_INCREMENT,
+`first_name` VARCHAR(100) NOT NULL,
+`last_name` VARCHAR(100) NOT NULL,
+`job_title` VARCHAR(100) NOT NULL,
+`department_id` INT NOT NULL,
+`hire_date` DATE NOT NULL,
+`salary` INT NOT NULL,
+`addres_id` INT NOT NULL,
+PRIMARY KEY (`id`));
+
+ALTER TABLE `addresses`
+ADD CONSTRAINT fk_addresses_towns FOREIGN KEY (`town_id`)
+REFERENCES `towns`(`id`);
+
+ALTER TABLE `employees`
+ADD CONSTRAINT fk_employees_departments FOREIGN KEY (`department_id`)
+REFERENCES `departments`(`id`);
+
+ALTER TABLE `employees`
+ADD CONSTRAINT fk_employees_address FOREIGN KEY (`addres_id`)
+REFERENCES `addresses`(`id`);
+
+
+
+INSERT INTO `towns` (name) VALUES("Sofia");
+INSERT INTO `towns` (name) VALUES("Plovdiv");
+INSERT INTO `towns` (name) VALUES("Varna");
+INSERT INTO `towns` (name) VALUES("Burgas");
+
+INSERT INTO `departments` (name) VALUES("Engineering");
+INSERT INTO `departments` (name) VALUES("Sales");
+INSERT INTO `departments` (name) VALUES("Marketing");
+INSERT INTO `departments` (name) VALUES("Software Development");
+INSERT INTO `departments` (name) VALUES("Quality Assurance");
+
+INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_id,hire_date,salary) VALUES(
+"Ivan", "Ivanov", "Ivanov",".NET Developer",4,'2013-02-01',3500.0);
+INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_id,hire_date,salary) VALUES(
+"Petar", "Petrov", "Petrov","Senior Engineer",1,'2004-03-02',4000.0);
+INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_id,hire_date,salary) VALUES(
+"Maria","Petrova","Ivanova","Quality Assurance",5,'2016-08-28',525.25);
+INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_id,hire_date,salary) VALUES(
+"Georgi","Terziev","Ivanov","CEO",2,'2007-12-09',3000.0);
+INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_id,hire_date,salary) VALUES(
+"Peter","Pan","Pan","Intern",3,'2016-08-28',599.88);
+
+
+
+SELECT `id`, `name`  FROM softuni.towns;
+SELECT `id`, `name`  FROM softuni.departments;
+SELECT `id`, `first_name`, `middle_name`, `last_name`, `job_title`, `department_id`, `hire_date`,
+`salary`, `addres_id` FROM softuni.employees;
+
+
+SELECT `id`, `name`  FROM softuni.towns ORDER BY `name` ASC;
+SELECT `id`, `name`  FROM softuni.departments ORDER BY `name` ASC;
+SELECT `id`, `first_name`, `middle_name`, `last_name`, `job_title`, `department_id`, `hire_date`,
+`salary`, `addres_id` FROM softuni.employees ORDER BY `first_name` ASC,
+`last_name` ASC, `job_title` ASC, `salary` ASC;
+
+
+
+
+SELECT `name`  FROM softuni.towns ORDER BY `name` ASC;
+SELECT `name`  FROM softuni.departments ORDER BY `name` ASC;
+SELECT `first_name`,`last_name`, `job_title`,
+`salary`FROM softuni.employees ORDER BY `first_name` ASC,
+`last_name` ASC, `job_title` ASC, `salary` ASC;
+
+UPDATE `employees` SET `salary` = `salary`+(`salary` * 0.1);
