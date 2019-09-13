@@ -1,8 +1,8 @@
 
-SELECT `id`,`first_name`,`last_name`,`job_title` FROM hospital.employees
+1)SELECT `id`,`first_name`,`last_name`,`job_title` FROM hospital.employees
 ORDER BY `id`;
 
-SELECT concat_ws(`first_name`,`last_name`) AS `full_name`, `id`,`job_title`,`salary` FROM `employees` WHERE `salary` > 1000.0
+2)SELECT concat_ws(`first_name`,`last_name`) AS `full_name`, `id`,`job_title`,`salary` FROM `employees` WHERE `salary` > 1000.0
 ORDER BY `id`;
 
 UPDATE `employees` SET `salary` = `salary` + (`salary` * 0.1) WHERE `job_title` = `Therapist`;
