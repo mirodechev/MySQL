@@ -34,4 +34,8 @@ SELECT `employee_id`,`first_name`,`middle_name`,`last_name`,`job_title`,`departm
 `first_name` ASC, `last_name` DESC, `middle_name` ASC,`employee_id` ASC;
 CREATE VIEW `v_employees_salaries` AS SELECT `first_name`,`last_name`,`salary` FROM `employees`;
 CREATE VIEW `v_employees_job_titles` AS SELECT concat_ws(' ',`first_name`,`middle_name`,`last_name`) AS `full_name`, `job_title` FROM `employees`;
-© 2019 GitHub, Inc.
+
+SELECT DISTINCT `job_title` FROM `employees` ORDER BY `job_title` ASC;
+SELECT `project_id`,`name`,`description`,`start_date`,`end_date` FROM `projects` ORDER BY `start_date`,`name`, `project_id` LIMIT 10;
+SELECT `first_name`,`last_name`,`hire_date` FROM `employees` ORDER BY `hire_date` DESC LIMIT 7;
+UPDATE `employees` SET `salary` = `salary` + (`salary` * 0.15) WHERE `department_id` = 1 OR 2 OR 4 OR 11;
