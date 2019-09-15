@@ -1,2 +1,2 @@
 SELECT `title` FROM `books` WHERE SUBSTRING(title,1,3) = 'The' ORDER BY `id`;
-SELECT REPLACE(`title`,'The','***')FROM `books`;
+SELECT REPLACE(`title`,'The','***')FROM `books` ORDER BY `id`;
