@@ -27,3 +27,7 @@ SELECT `name` FROM `towns` WHERE CHAR_LENGTH(`name`) = 5 OR 6 ORDER BY `name` AS
 SELECT `name` FROM `towns` WHERE `name` LIKE 'M%' OR `name` LIKE'K%'OR `name` LIKE'B%'OR `name` LIKE'E%' ORDER BY `name` ASC;
 8)
 SELECT `name` FROM `towns` WHERE `name`  NOT LIKE  '[RBD]' ORDER BY `town_id`;
+9)
+CREATE VIEW `v_employees_hired_after_2000` AS SELECT `first_name`,`last_name` FROM `employees` WHERE EXTRACT(YEAR FROM`hire_date`)>2000;
+10)
+SELECT `first_name`,`last_name` FROM `employees` WHERE CHAR_LENGTH(`last_name`) = 5;
