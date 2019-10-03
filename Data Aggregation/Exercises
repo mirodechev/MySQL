@@ -22,3 +22,5 @@ WHEN `age` BETWEEN 51 AND 60 THEN '[51-60]'
 ELSE '[61+]'
 END) AS `age_group`,COUNT(`id`) AS `wizard_count`
 FROM `wizzard_deposits` GROUP BY `age_group` ORDER BY `wizard_count`;
+10)
+SELECT `deposit_group`,`is_deposit_expired`,AVG(`deposit_interest`) AS `average_interest` FROM `wizzard_deposits` WHERE `deposit_start_date` > '1985-01-01' GROUP BY `deposit_group`ORDER BY `deposit_group` DESC, `is_deposit_expired` ASC;
