@@ -71,7 +71,7 @@ ALTER TABLE `minions`.`users`
 CHANGE COLUMN `pk_users_username` `pk_users` INT NOT NULL AUTO_INCREMENT;
 
 
-CREATE DATABASE `softuni`;
+12)CREATE DATABASE `softuni`;
 USE `softuni`;
 CREATE TABLE `towns`(
 `id` INT NOT NULL AUTO_INCREMENT,
@@ -114,7 +114,7 @@ REFERENCES `addresses`(`id`);
 
 
 
-INSERT INTO `towns` (name) VALUES("Sofia");
+13)INSERT INTO `towns` (name) VALUES("Sofia");
 INSERT INTO `towns` (name) VALUES("Plovdiv");
 INSERT INTO `towns` (name) VALUES("Varna");
 INSERT INTO `towns` (name) VALUES("Burgas");
@@ -138,13 +138,13 @@ INSERT INTO `employees` (first_name,middle_name,last_name,job_title,department_i
 
 
 
-SELECT `id`, `name`  FROM softuni.towns;
+14)SELECT `id`, `name`  FROM softuni.towns;
 SELECT `id`, `name`  FROM softuni.departments;
 SELECT `id`, `first_name`, `middle_name`, `last_name`, `job_title`, `department_id`, `hire_date`,
 `salary`, `addres_id` FROM softuni.employees;
 
 
-SELECT `id`, `name`  FROM softuni.towns ORDER BY `name` ASC;
+15)SELECT `id`, `name`  FROM softuni.towns ORDER BY `name` ASC;
 SELECT `id`, `name`  FROM softuni.departments ORDER BY `name` ASC;
 SELECT `id`, `first_name`, `middle_name`, `last_name`, `job_title`, `department_id`, `hire_date`,
 `salary`, `addres_id` FROM softuni.employees ORDER BY `first_name` ASC,
@@ -153,10 +153,10 @@ SELECT `id`, `first_name`, `middle_name`, `last_name`, `job_title`, `department_
 
 
 
-SELECT `name`  FROM softuni.towns ORDER BY `name` ASC;
+16)SELECT `name`  FROM softuni.towns ORDER BY `name` ASC;
 SELECT `name`  FROM softuni.departments ORDER BY `name` ASC;
 SELECT `first_name`,`last_name`, `job_title`,
 `salary`FROM softuni.employees ORDER BY `first_name` ASC,
 `last_name` ASC, `job_title` ASC, `salary` ASC;
 
-UPDATE `employees` SET `salary` = `salary`+(`salary` * 0.1);
+17)UPDATE `employees` SET `salary` = `salary`+(`salary` * 0.1);
