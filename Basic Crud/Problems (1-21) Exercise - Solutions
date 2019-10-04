@@ -33,10 +33,10 @@ ORDER BY `employee_id`;
 
 16)CREATE VIEW `v_employees_job_titles` AS SELECT concat_ws(' ',`first_name`,`middle_name`,`last_name`) AS `full_name`, `job_title` FROM `employees`;
 
-18)SELECT DISTINCT `job_title` FROM `employees` ORDER BY `job_title` ASC;
+17)SELECT DISTINCT `job_title` FROM `employees` ORDER BY `job_title` ASC;
 
-19)SELECT `project_id`,`name`,`description`,`start_date`,`end_date` FROM `projects` ORDER BY `start_date`,`name`, `project_id` LIMIT 10;
+18)SELECT `project_id`,`name`,`description`,`start_date`,`end_date` FROM `projects` ORDER BY `start_date`,`name`, `project_id` LIMIT 10;
 
-20)SELECT `first_name`,`last_name`,`hire_date` FROM `employees` ORDER BY `hire_date` DESC LIMIT 7;
+19)SELECT `first_name`,`last_name`,`hire_date` FROM `employees` ORDER BY `hire_date` DESC LIMIT 7;
 
-21)UPDATE `employees` SET `salary` = `salary` + (`salary` * 0.15) WHERE `department_id` = 1 OR 2 OR 4 OR 11;
+20)UPDATE `employees` SET `salary` = `salary` + (`salary` * 0.15) WHERE `department_id` = 1 OR 2 OR 4 OR 11;
