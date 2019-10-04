@@ -1,0 +1,6 @@
+1)SELECT `department_id`, count(`id`) AS 'Number of Employees' FROM `employees` GROUP BY `department_id` ORDER BY `department_id`;
+2)SELECT `department_id`, round((AVG(`salary`)),2) AS 'Average Salary' FROM `employees` GROUP BY `department_id` ORDER BY `department_id`;
+3)SELECT `department_id`, round(min(`salary`)) AS 'Minimum Salary'  FROM `employees` WHERE 'Minimum Salary' > 800 GROUP BY `department_id`;
+4)SELECT COUNT(`category_id` = 2) AS 'appetizers' FROM `products` WHERE `price` > 8;
+5)SELECT `category_id`, round(AVG(`price`),2) AS 'Average Price', round(MIN(`price`),2) AS 'Cheapest Product',round(MAX(`price`),2) AS 'Most Expensive Product' FROM `products`
+GROUP BY `category_id`;
