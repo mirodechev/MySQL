@@ -1,37 +1,39 @@
 1)SELECT `first_name`,`last_name` FROM `employees` WHERE `first_name` LIKE "Sa%"
 ORDER BY `employee_id` ASC;
+
 2)SELECT `first_name`,`last_name` FROM `employees` WHERE `last_name` LIKE "ei%"
 ORDER BY `employee_id` ASC;
 
-3)SELECT `first_name` FROM `employees` WHERE `department_id` = 3 OR 10
-AND EXTRACT(YEAR FROM `hire_date`) BETWEEN 1995 AND 2005 ORDER BY `employee_id`;
-
-4)
+3)
 SELECT `first_name` FROM `employees` WHERE `department_id` = 3 OR 10
 AND `hire_date` BETWEEN 1995 AND 2005 ORDER BY `employee_id`;
 
-5)SELECT `first_name`,`last_name` FROM `employees` WHERE `job_title` != 'engineer';
+4)SELECT `first_name`,`last_name` FROM `employees` WHERE `job_title` != 'engineer';
+
+5)
+SELECT `name` FROM `towns` WHERE CHAR_LENGTH(`name`) = 5 OR 6 ORDER BY `name` ASC;
 
 6)
-SELECT `name` FROM `towns` WHERE CHAR_LENGTH(`name`) = 5 OR 6 ORDER BY `name` ASC;
-7)
 SELECT `name` FROM `towns` WHERE `name` LIKE 'M%' OR `name` LIKE'K%'OR `name` LIKE'B%'OR `name` LIKE'E%' ORDER BY `name` ASC;
-8)
+
+7)
 SELECT `name` FROM `towns` WHERE `name`  NOT LIKE  '[RBD]' ORDER BY `town_id`;
-9)
+
+8)
 CREATE VIEW `v_employees_hired_after_2000` AS SELECT `first_name`,`last_name` FROM `employees` WHERE EXTRACT(YEAR FROM`hire_date`)>2000;
-10)
+
+9)
 SELECT `first_name`,`last_name` FROM `employees` WHERE CHAR_LENGTH(`last_name`) = 5;
 
-11)
+10)
 SELECT `country_name`,`iso_code` FROM `countries` WHERE `country_name` LIKE '%a%a%a';
-12)
+11)
 SELECT `peak_name`,`river_name`,lower(concat(`peak_name`,`river_name`)) AS `mix`FROM `peaks`,`rivers` WHERE right(`peak_name`,1) = left(`river_name`,1) ORDER BY `mix` ASC;
 
-13)
+12)
 SELECT `name`,DATE_FORMAT(`start`,"%Y-%m-%d") AS `start` FROM `games`WHERE EXTRACT(YEAR FROM `start`) = 2011 AND 2012 ORDER BY `start`,`name` LIMIT 50;
-14)
+13)
 SELECT `user_name`,substr(`email`,position('@' IN `email`)+1) AS 'Email Provider' FROM `users` ORDER BY `user_name`;
-15)
+14)
 SELECT `user_name`, `ip_address` FROM `users` WHERE `ip_address` LIKE '___.1%.%.___' ORDER BY `user_name`;
 
