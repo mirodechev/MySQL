@@ -1,0 +1,14 @@
+1)SELECT `id`,`first_name`,`last_name`,`job_title` FROM hospital.employees
+ORDER BY `id`;
+
+2)SELECT concat_ws(`first_name`,`last_name`) AS `full_name`, `id`,`job_title`,`salary` FROM `employees` WHERE `salary` > 1000.0
+ORDER BY `id`;
+
+3)UPDATE `employees` SET `salary` = `salary` + (`salary` * 0.1) WHERE `job_title` = `Therapist`;
+SELECT `salary` FROM `employees` ORDER BY `salary` ASC;
+
+4)CREATE VIEW `top_paid_employee` AS SELECT `first_name`,`last_name`,`job_title`,`department_id`,`salary` FROM `employees`;
+
+5)SELECT `first_name`, `last_name`, `job_title`, `department_id`,`salary` FROM `employees` WHERE `department_id` = 4 AND `salary` >=1600;
+
+6)DELETE FROM `employees` WHERE `department_id` = 1 OR 2;
