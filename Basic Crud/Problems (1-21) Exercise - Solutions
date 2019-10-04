@@ -15,7 +15,8 @@
 8)SELECT `first_name`,`last_name`,`job_title` FROM `employees` WHERE `salary` BETWEEN 20000 AND 30000
 ORDER BY `employee_id`;
 
-9)SELECT concat_ws(`first_name`,`middle_name`,`last_name`) AS `Full Name` FROM `employees` WHERE `salary` = 2500 OR 14000 OR 12500 OR 23600;
+9)SELECT concat_ws(`first_name`,`middle_name`,`last_name`) AS `Full Name` FROM `employees` WHERE `salary` = 2500 OR
+`salary` = 14000 OR `salary` = 12500 OR `salary` = 23600;
 
 10)SELECT `first_name`,`last_name` FROM `employees` WHERE `manager_id` = NULL;
 
