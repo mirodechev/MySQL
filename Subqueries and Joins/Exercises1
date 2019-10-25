@@ -11,3 +11,26 @@
 	FROM `employees` AS e 
     JOIN `departments` AS d 
     ON  e.`department_id` = d.`department_id` WHERE d.`name` = 'Sales'  ORDER BY `employee_id` DESC ;
+
+4)	SELECT e.`employee_id`,e.`first_name`,e.`last_name`,d.`name`AS `department_name`
+	FROM `employees` AS e 
+    JOIN `departments` AS d 
+    ON  e.`department_id` = d.`department_id` WHERE d.`name` = 'Sales'  ORDER BY `employee_id` DESC ;
+    
+5)SELECT `first_name`,`last_name`,`hire_date`,d.`name` AS `department_name`
+FROM `employees` AS e
+JOIN `departments` AS d
+ON e.`department_id` = d.`department_id` WHERE e.`hire_date` > '1999-01-01 00:00:00.000000' AND d.`name` = 'Sales' OR d.`name`= 'Finance'
+ORDER BY e.`hire_date` ASC;
+
+6)SELECT e.`employee_id`,e.`first_name`,p.`name` AS `project_name`
+FROM `employees` AS e
+JOIN `employees_projects` AS ep
+ON e.`employee_id` = ep.`employee_id`
+JOIN `projects` AS p
+ON ep.`employee_id` = p.`project_id` WHERE p.`start_date` > '2002-08-13 00:00:00.000000' AND  p.`end_date` IS NULL
+ORDER BY e.`first_name` ASC, p.`name` ASC LIMIT 5;
+
+7)SELECT MIN(SELECT AVG(`salary`) FROM `employees` GROUP BY `department_id` AS `min_avg_salary`) FROM `employees`;
+
+
