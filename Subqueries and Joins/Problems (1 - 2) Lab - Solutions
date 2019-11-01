@@ -3,8 +3,7 @@ FROM `employees` AS e
 RIGHT JOIN `departments` as d
 ON d.`manager_id` = e.`employee_id`
 ORDER BY e.`employee_id` LIMIT 5;
-;
-;
-4)SELECT COUNT(e.`employee_id`) AS `count`
+
+2)SELECT COUNT(e.`employee_id`) AS `count`
 FROM `employees` AS e
 WHERE e.`salary` > (SELECT AVG(`salary`) AS 'average_salary' FROM `employees`);
