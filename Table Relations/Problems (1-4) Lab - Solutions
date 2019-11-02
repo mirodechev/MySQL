@@ -15,12 +15,8 @@ FROM `vehicles` AS `v`
 JOIN `campers` AS `c`
 ON `c`.`id` = `v`.`driver_id`;
 
-3)SELECT `driver_id`, `vehicle_type`, CONCAT(`first_name`, ' ',`last_name`) AS `driver_name`
-FROM `vehicles` AS `v`
-JOIN `campers` AS `c`
-ON `c`.`id` = `v`.`driver_id`;
 
-4)
+3)
 CREATE TABLE `mountains`(
 `id` INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
 `name` VARCHAR(255) NOT NULL
